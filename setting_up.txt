@@ -1,0 +1,30 @@
+setting_up
+
+sudo apt-get update
+sudo apt-get install git
+mkdir ~/home/pi/autoblog
+cd ~/home/pi/autoblog
+git clone https://github.com/tokland/youtube-upload.git
+cd youtube-upload
+sudo apt-get install python-pip
+sudo pip install --upgrade google-api-python-client oauth2client progressbar2youti
+
+add to main.py
+from oauth2client import file
+
+FTP and upload a sample video
+
+pip install google-api-python-client==1.7.3 oauth2client==4.1.2 progressbar2==3.38.0 httplib2==0.15.0
+
+youtube-upload --title="New Video" /home/pi/autoblog/video_samples/sample.mov
+
+To work on youtube-upload package code, edit the /autoblog/youtube-upload/main.py then run sudo python setup.py install. this will refresh the system package for yt uploader
+
+use the package for youtub upload in the autoblog.py like this...
+
+from youtube_upload import main 
+
+if __name__ == '__main__': 
+  main.main(['--title=New Video4', '--description=This is the description', '/home/pi/autoblog/video_samples/sample.mov'])
+
+
